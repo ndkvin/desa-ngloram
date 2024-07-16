@@ -4,6 +4,21 @@
 
 @section('content')
     <section class="blog-area section-gap-extra-bottom primary-soft-bg mt-5">
+        <div class="container mt-5">
+            <div class="categories-header">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="common-heading mb-30">
+                            <span class="tagline">
+                                <i class="fas fa-plus"></i> Berita
+                                <span class="heading-shadow-text">Berita</span>
+                            </span>
+                            <h2 class="title">Berita Terkini</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

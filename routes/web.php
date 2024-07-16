@@ -14,3 +14,11 @@ Route::get('/kontak', [App\Http\Controllers\Home\HomeController::class, 'contact
 Route::get('/berita', [App\Http\Controllers\Home\HomeController::class, 'berita'])->name('berita');
 Route::get('/agenda', [App\Http\Controllers\Home\HomeController::class, 'agenda'])->name('agenda');
 Route::get('/pengumuman', [App\Http\Controllers\Home\HomeController::class, 'pengumuman'])->name('pengumuman');
+Route::get('/struktur', [App\Http\Controllers\Home\HomeController::class, 'struktur'])->name('struktur');
+Route::get('/demografi', [App\Http\Controllers\Home\HomeController::class, 'demografi'])->name('demografi');
+Route::get('/visimisi', [App\Http\Controllers\Home\HomeController::class, 'visimisi'])->name('visi-misi');
+Route::get('/geografis', [App\Http\Controllers\Home\HomeController::class, 'geografis'])->name('geografis');
+
+Route::get('/dashboard', function() {
+    return view('pages.dashboard.admin');
+})->name('admin.dashboard');

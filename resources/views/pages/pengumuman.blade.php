@@ -5,6 +5,21 @@
 @section('content')
     <section class="blog-area section-gap-extra-bottom primary-soft-bg mt-5">
         <div class="container">
+            <div class="categories-header">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="common-heading mb-30">
+                            <span class="tagline">
+                                <i class="fas fa-plus"></i> Pengumuman
+                                <span class="heading-shadow-text">Pengumuman</span>
+                            </span>
+                            <h2 class="title">Pengumuman Terbaru</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-post-loop">

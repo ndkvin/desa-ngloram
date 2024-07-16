@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="about-section-four section-gap mt-5">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-10">
                 <div class="about-img mb-md-70">

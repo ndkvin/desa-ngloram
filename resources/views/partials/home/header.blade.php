@@ -39,14 +39,14 @@
                             <a href={{ route('about') }}>Profil Desa</a>
                             <ul class="submenu">
                                 <li><a href={{ route('about') }}>Tentang Desa</a></li>
-                                <li><a href="project-2.html">Visi Misi</a></li>
-                                <li><a href="project-3.html">Geografis</a></li>
+                                <li><a href={{ route('visi-misi') }}>Visi Misi</a></li>
+                                <li><a href={{ route('geografis') }}>Geografis</a></li>
                                 <li><a href={{ route('sejarah') }}>Sejarah</a></li>
-                                <li><a href="project-details.html">Demografi</a></li>
+                                <li><a href={{ route('demografi') }}>Demografi</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="events.html">Struktur Organisasi</a>
+                        <li class={{ Route::currentRouteName() == 'struktur' ? 'current' : '' }}>
+                            <a href={{ route('struktur') }}>Struktur Organisasi</a>
                         </li>
                         @php
                             $informasi = ['berita', 'pengumuman', 'agenda'];

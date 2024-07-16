@@ -40,4 +40,23 @@ class HomeController extends Controller
     {
         return view('pages.pengumuman');
     }
+
+    public function struktur()
+    {
+        return view('pages.struktur');
+    }
+
+    public function demografi()
+    {
+        return view('pages.demografi');
+    }
+
+    public function visimisi() {
+        return view('pages.visimisi');
+    }
+
+    public function geografis()
+    {
+        return view('pages.geografis');
+    }
 }
