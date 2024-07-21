@@ -2,6 +2,16 @@ $("#summernote").summernote({
   tabsize: 2,
   height: 120,
 })
+
+$('#form').on('submit', function(e) {
+  e.preventDefault(); // Prevent default form submission
+  var content = $('#summernote').summernote('code'); // Get Summernote content
+  $('#content').val(content);
+
+  // submit
+  this.submit();
+});
+
 $("#hint").summernote({
   height: 100,
   toolbar: false,

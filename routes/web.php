@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\Home\LandingController::class, 'index'])->name('welcome');
-
 Route::get('/', [App\Http\Controllers\Home\HomeController::class, 'home'])->name('home');
 Route::get('/tentang', [App\Http\Controllers\Home\HomeController::class, 'about'])->name('about');
 Route::get('/sejarah', [App\Http\Controllers\Home\HomeController::class, 'sejarah'])->name('sejarah');
@@ -19,6 +17,11 @@ Route::get('/demografi', [App\Http\Controllers\Home\HomeController::class, 'demo
 Route::get('/visimisi', [App\Http\Controllers\Home\HomeController::class, 'visimisi'])->name('visi-misi');
 Route::get('/geografis', [App\Http\Controllers\Home\HomeController::class, 'geografis'])->name('geografis');
 
-Route::get('/dashboard', function() {
-    return view('pages.dashboard.admin');
-})->name('admin.dashboard');
+Route::group([
+    'middleware' => 'auth',
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.'
+], function() {
+    Route::resource('post', App\Http\Controllers\Dashboard\PostController::class);
+    Route::resource('user', App\Http\Controllers\Dashboard\UserController::class);
+});

@@ -30,7 +30,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                            by <a href="https://ngloram.com">Desa Ngloram</a></p>
+                            by <a href="https://ngloram.com">KKN UNS 2024</a></p>
                     </div>
                 </div>
             </footer>

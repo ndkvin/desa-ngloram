@@ -1,5 +1,21 @@
 let jquery_datatable = $("#table1").DataTable({
-    responsive: true
+    responsive: true,
+    initComplete: function () {
+        // Move the footer to the top of the table
+        $(this.api().table().header()).prepend($(this.api().table().footer()).children());
+        this.api().columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change clear', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+    },
+
 })
 let customized_datatable = $("#table2").DataTable({
     responsive: true,
