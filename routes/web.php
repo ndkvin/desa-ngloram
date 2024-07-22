@@ -16,12 +16,15 @@ Route::get('/struktur', [App\Http\Controllers\Home\HomeController::class, 'struk
 Route::get('/demografi', [App\Http\Controllers\Home\HomeController::class, 'demografi'])->name('demografi');
 Route::get('/visimisi', [App\Http\Controllers\Home\HomeController::class, 'visimisi'])->name('visi-misi');
 Route::get('/geografis', [App\Http\Controllers\Home\HomeController::class, 'geografis'])->name('geografis');
+Route::get('/berita/{slug}', [App\Http\Controllers\Home\HomeController::class, 'beritaShow'])->name('berita.show');
+Route::get('/pengumuman/{slug}', [App\Http\Controllers\Home\HomeController::class, 'pengumumanShow'])->name('pengumuman.show');
+Route::get('/agenda/{slug}', [App\Http\Controllers\Home\HomeController::class, 'agendaShow'])->name('agenda.show');
 
 Route::group([
     'middleware' => 'auth',
     'prefix' => 'dashboard',
     'as' => 'dashboard.'
-], function() {
+], function () {
     Route::resource('post', App\Http\Controllers\Dashboard\PostController::class);
     Route::resource('user', App\Http\Controllers\Dashboard\UserController::class);
 });

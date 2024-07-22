@@ -204,52 +204,28 @@
                 <h2 class="title">Berita Terkini</h2>
             </div>
             <div class="row justify-content-center latest-blog-posts style-one">
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/01.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Standing Out From Crowds mproving Mobile Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/02.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Five Rules Of App Localization China Money Dating And App
-                                    Store</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
+                @foreach ($berita as $berita)
+                    <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="latest-post-box mt-30">
+                            <div class="post-thumb">
+                                <img src="{{ Storage::url($berita->image) }}" alt="Image">
+                            </div>
+                            <div class="post-content">
+                                <a href="{{ route('berita.show', $berita->slug) }}" class="post-date"><i
+                                        class="far fa-calendar-alt"></i>
+                                    {{ $berita->created_at->format('d F Y') }}
+                                </a>
+                                <h6 class="title">
+                                    <a href="{{ route('berita.show', $berita->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($berita->title, 150, $end = '...') }}
+                                    </a>
+                                </h6>
+                                <a href="{{ route('berita.show', $berita->slug) }}" class="post-link">Read More <i
+                                        class="far fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/03.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">How To Use Underlined Text Improve User Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -266,52 +242,28 @@
                 <h2 class="title">Pengumuman Penting</h2>
             </div>
             <div class="row justify-content-center latest-blog-posts style-one">
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/01.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Standing Out From Crowds mproving Mobile Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/02.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Five Rules Of App Localization China Money Dating And App
-                                    Store</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
+                @foreach ($pengumuman as $pengumuman)
+                    <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="latest-post-box mt-30">
+                            <div class="post-thumb">
+                                <img src="{{ Storage::url($pengumuman->image) }}" alt="Image">
+                            </div>
+                            <div class="post-content">
+                                <a href="{{ route('pengumuman.show', $pengumuman->slug) }}" class="post-date"><i
+                                        class="far fa-calendar-alt"></i>
+                                    {{ $pengumuman->created_at->format('d F Y') }}
+                                </a>
+                                <h6 class="title">
+                                    <a href="{{ route('pengumuman.show', $pengumuman->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($pengumuman->title, 150, $end = '...') }}
+                                    </a>
+                                </h6>
+                                <a href="{{ route('pengumuman.show', $pengumuman->slug) }}" class="post-link">Read More <i
+                                        class="far fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/03.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">How To Use Underlined Text Improve User Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -328,52 +280,28 @@
                 <h2 class="title">Agenda Terbaru</h2>
             </div>
             <div class="row justify-content-center latest-blog-posts style-one">
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/01.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Standing Out From Crowds mproving Mobile Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/02.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">Five Rules Of App Localization China Money Dating And App
-                                    Store</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
+                @foreach ($agenda as $agenda)
+                    <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="latest-post-box mt-30">
+                            <div class="post-thumb">
+                                <img src="{{ Storage::url($agenda->image) }}" alt="Image">
+                            </div>
+                            <div class="post-content">
+                                <a href="{{ route('agenda.show', $agenda->slug) }}" class="post-date"><i
+                                        class="far fa-calendar-alt"></i>
+                                    {{ $agenda->created_at->format('d F Y') }}
+                                </a>
+                                <h6 class="title">
+                                    <a href="{{ route('agenda.show', $agenda->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($agenda->title, 150, $end = '...') }}
+                                    </a>
+                                </h6>
+                                <a href="{{ route('agenda.show', $agenda->slug) }}" class="post-link">Read More <i
+                                        class="far fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="latest-post-box mt-30">
-                        <div class="post-thumb">
-                            <img src="assets/img/latest-news/03.jpg" alt="Image">
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-date"><i class="far fa-calendar-alt"></i> 25 February 2021</a>
-                            <h6 class="title">
-                                <a href="news-details.html">How To Use Underlined Text Improve User Experience</a>
-                            </h6>
-                            <a href="news-details.html" class="post-link">Read More <i
-                                    class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -25,7 +25,7 @@
         <div class="container">
             <div class="navbar-inner">
                 <div class="site-logo">
-                    <a href={{ route('home') }}><img src="assets/img/logo.png" alt="Funden"></a>
+                    <a href={{ route('home') }}><img src="{{  asset('assets/img/logo.png') }}" alt="Funden"></a>
                 </div>
                 <div class="nav-menu">
                     <ul>
@@ -72,7 +72,7 @@
     </div>
     <div class="mobile-menu-panel">
         <div class="panel-logo">
-            <a href="index.html"><img src="assets/img/logo-white.png" alt="Funden"></a>
+            <a href="index.html"><img src="{{ asset('assets/img/logo-white.png') }}" alt="Funden"></a>
         </div>
         <ul class="panel-menu">
             <li class="current">
