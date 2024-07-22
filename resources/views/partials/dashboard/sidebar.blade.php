@@ -45,13 +45,13 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item {{ request()->is('dashboard/post*') ? 'active': '' }} ">
                     <a href="{{ route('dashboard.post.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Postingan</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item {{ request()->is('dashboard/user*') ? 'active': '' }}">
                     <a href="{{ route('dashboard.user.index') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Akun Admin</span>

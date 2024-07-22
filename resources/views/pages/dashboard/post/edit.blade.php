@@ -38,12 +38,11 @@
                     <option value="agenda" {{ $post->category == 'agenda' ? 'selected' : '' }}>Agenda</option>
                 </select>
             </fieldset>
-            <label for="image" class="form-label mb-2">Gambar</label>
+            <label for="image" class="form-label mb-2">Gambar (biarkan kosong jika tidak ingin diubah)</label>
             <input class="form-control" type="file" id="image" name='image'>
-            <p>Biarkan kosong jika tidak dirubah</p>
             <div class="row">
                 <div class="col">
-                    <img class="w-75" src="{{ Storage::url($post->image) }}" alt="">
+                    <img class="w-75 my-2" src="{{ Storage::url($post->image) }}" alt="">
                 </div>
             </div>
             <label for="Konten" class="form-label my-2">Konten</label>

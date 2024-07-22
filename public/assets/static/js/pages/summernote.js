@@ -1,6 +1,6 @@
 $("#summernote").summernote({
   tabsize: 2,
-  height: 120,
+  height: 500,
 })
 
 $('#form').on('submit', function(e) {
