@@ -33,17 +33,33 @@ class HomeController extends Controller
 
     public function berita()
     {
-        return view('pages.berita');
+        // dd(Post::where('category', 'berita')->latest()->paginate(2));
+        return view('pages.berita', [
+            'berita' => Post::where('category', 'berita')->latest()->paginate(10),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
+        ]);
     }
 
     public function agenda()
     {
-        return view('pages.agenda');
+        return view('pages.agenda', [
+            'agenda' => Post::where('category', 'agenda')->latest()->paginate(10),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
+        ]);
     }
 
     public function pengumuman()
     {
-        return view('pages.pengumuman');
+        return view('pages.pengumuman', [
+            'pengumuman' => Post::where('category', 'pengumuman')->latest()->paginate(10),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
+        ]);
     }
 
     public function struktur()

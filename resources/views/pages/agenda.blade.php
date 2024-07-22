@@ -23,84 +23,88 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-post-loop">
-                        <div class="post-item">
-                            <div class="post-thumbnail">
-                                <img src="assets/img/blog/01.jpg" alt="Thumbnail">
+                        @foreach ($agenda as $item)
+                            <div class="post-item">
+                                <div class="post-thumbnail">
+                                    <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                </div>
+                                <div class="post-content">
+                                    <ul class="post-meta">
+                                        <li>
+                                            <a href="{{ route('agenda.show', $item->slug) }}"><i
+                                                    class="far fa-calendar-alt"></i>{{ $item->created_at->format('d M Y') }}</a>
+                                        </li>
+                                    </ul>
+                                    <h3 class="title">
+                                        <a href="{{ route('agenda.show', $item->slug) }}">
+                                            {{ \Illuminate\Support\Str::limit($item->title, 150, $end = '...') }}
+                                        </a>
+                                    </h3>
+                                    <a href="{{ route('agenda.show', $item->slug) }}" class="post-link">Read More <i
+                                            class="far fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>
-                                        <a href="#"><i class="far fa-user-circle"></i>Funden</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="far fa-calendar-alt"></i>25 February 2021</a>
-                                    </li>
-                                </ul>
-                                <h3 class="title">
-                                    <a href="news-details.html">Live Stream From Awwwards Berlin Showcasing Was Trends
-                                        Design China Money Dating</a>
-                                </h3>
-                                <a href="news-details.html" class="post-link">Read More <i
-                                        class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="post-item video-post">
-                            <div class="post-thumbnail">
-                                <img src="assets/img/blog/02.jpg" alt="Thumbnail">
-                                <a href="//www.youtube.com/watch?v=XSGBVzeBUbk" class="video-popup" data-lity><i
-                                        class="fas fa-play"></i></a>
-                            </div>
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>
-                                        <a href="#"><i class="far fa-user-circle"></i>Funden</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="far fa-calendar-alt"></i>25 February 2021</a>
-                                    </li>
-                                </ul>
-                                <h3 class="title">
-                                    <a href="news-details.html">User Memory Design How To Design For Experiences That
-                                        LastLive Stream From Awwwards</a>
-                                </h3>
-                                <a href="news-details.html" class="post-link">Read More <i
-                                        class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="post-item">
-                            <div class="post-thumbnail">
-                                <img src="assets/img/blog/03.jpg" alt="Thumbnail">
-                            </div>
-                            <div class="post-content">
-                                <ul class="post-meta">
-                                    <li>
-                                        <a href="#"><i class="far fa-user-circle"></i>Funden</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="far fa-calendar-alt"></i>25 February 2021</a>
-                                    </li>
-                                </ul>
-                                <h3 class="title">
-                                    <a href="news-details.html">User Memory Design How To Design For Experiences That
-                                        LastLive Stream From Awwwards</a>
-                                </h3>
-                                <a href="news-details.html" class="post-link">Read More <i
-                                        class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="post-item thumbnail-as-bg">
-                            <div class="post-thumbnail">
-                                <img src="assets/img/blog/04.jpg" alt="Thumbnail">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#"><i class="far fa-angle-left"></i></a></li>
-                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                        <li class="page-item"><a class="page-link" href="#">02</a></li>
-                        <li class="page-item"><a class="page-link" href="#">03</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i class="far fa-angle-right"></i></a>
-                        </li>
+                        {{-- Previous Page Link --}}
+                        @if ($agenda->onFirstPage())
+                            <li class="page-item disabled" aria-disabled="true">
+                                <span class="page-link"><i class="far fa-angle-left"></i></span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $agenda->previousPageUrl() }}" rel="prev"><i
+                                        class="far fa-angle-left"></i></a>
+                            </li>
+                        @endif
+
+                        {{-- Pagination Elements --}}
+                        @php
+                            $currentPage = $agenda->currentPage();
+                            $lastPage = $agenda->lastPage();
+                            $range = 1; // Number of pages to show before and after the current page
+                        @endphp
+
+                        {{-- Show first page if necessary --}}
+                        @if ($currentPage > $range + 1)
+                            <li class="page-item"><a class="page-link" href="{{ $agenda->url(1) }}">1</a></li>
+                            @if ($currentPage > $range + 2)
+                                <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+                            @endif
+                        @endif
+
+                        {{-- Show pages around the current page --}}
+                        @for ($page = max(1, $currentPage - $range); $page <= min($lastPage, $currentPage + $range); $page++)
+                            @if ($page == $currentPage)
+                                <li class="page-item active" aria-current="page"><span
+                                        class="page-link">{{ $page }}</span></li>
+                            @else
+                                <li class="page-item"><a class="page-link"
+                                        href="{{ $agenda->url($page) }}">{{ $page }}</a></li>
+                            @endif
+                        @endfor
+
+                        {{-- Show last page if necessary --}}
+                        @if ($currentPage < $lastPage - $range)
+                            @if ($currentPage < $lastPage - $range - 1)
+                                <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+                            @endif
+                            <li class="page-item"><a class="page-link"
+                                    href="{{ $agenda->url($lastPage) }}">{{ $lastPage }}</a></li>
+                        @endif
+
+                        {{-- Next Page Link --}}
+                        @if ($agenda->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $agenda->nextPageUrl() }}" rel="next"><i
+                                        class="far fa-angle-right"></i></a>
+                            </li>
+                        @else
+                            <li class="page-item disabled" aria-disabled="true">
+                                <span class="page-link"><i class="far fa-angle-right"></i></span>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -108,41 +112,64 @@
                         <div class="widget category-widget">
                             <h4 class="widget-title">Category</h4>
                             <ul>
-                                <li><a href="#">Berita (5) <i class="far fa-angle-right"></i></a></li>
-                                <li><a href="#">Pengumuman (7) <i class="far fa-angle-right"></i></a></li>
-                                <li><a href="#">Agenda (7) <i class="far fa-angle-right"></i></a></li>
+                                <li><a href="{{ route('berita') }}">Berita<i class="far fa-angle-right"></i></a></li>
+                                <li><a href="{{ route('pengumuman') }}">Pengumuman<i class="far fa-angle-right"></i></a>
+                                </li>
+                                <li><a href="{{ route('agenda') }}">Agenda<i class="far fa-angle-right"></i></a></li>
                             </ul>
                         </div>
                         <div class="widget latest-blog-widget">
-                            <h4 class="widget-title">Latest News</h4>
+                            <h4 class="widget-title">Berita Terkini</h4>
                             <ul>
-                                <li>
-                                    <div class="thumb">
-                                        <img src="assets/img/latest-news/widget-01.jpg" alt="Image">
-                                    </div>
-                                    <div class="desc">
-                                        <h6><a href="news-details.html">Build Seamless Spreads Import Experience</a></h6>
-                                        <span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <img src="assets/img/latest-news/widget-02.jpg" alt="Image">
-                                    </div>
-                                    <div class="desc">
-                                        <h6><a href="news-details.html">Creating Online Environ Work Well Older</a></h6>
-                                        <span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <img src="assets/img/latest-news/widget-03.jpg" alt="Image">
-                                    </div>
-                                    <div class="desc">
-                                        <h6><a href="news-details.html">Signs Website Feelore Haunted House</a></h6>
-                                        <span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
-                                    </div>
-                                </li>
+                                @foreach ($beritaTerkini as $item)
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="{{ route('berita.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </h6>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <div class="widget latest-blog-widget">
+                            <h4 class="widget-title">Agenda Terkini</h4>
+                            <ul>
+                                @foreach ($agendaTerkini as $item)
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="{{ route('agenda.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </h6>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <div class="widget latest-blog-widget">
+                            <h4 class="widget-title">Pengumuman Terkini</h4>
+                            <ul>
+                                @foreach ($pengumumanTerkini as $item)
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                        </div>
+                                        <div class="content">
+                                            <h6><a
+                                                    href="{{ route('pengumuman.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </h6>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
