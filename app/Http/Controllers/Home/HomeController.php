@@ -69,7 +69,9 @@ class HomeController extends Controller
     {
         return view('pages.berita-detail', [
             'berita' => Post::where([['slug', $slug], ['category', 'berita']])->firstOrFail(),
-            'latest'=> Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
         ]);
     }
 
@@ -77,7 +79,9 @@ class HomeController extends Controller
     {
         return view('pages.pengumuman-detail', [
             'pengumuman' => Post::where([['slug', $slug], ['category', 'pengumuman']])->firstOrFail(),
-            'latest'=> Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
         ]);
     }
 
@@ -85,7 +89,9 @@ class HomeController extends Controller
     {
         return view('pages.agenda-detail', [
             'agenda' => Post::where([['slug', $slug], ['category', 'agenda']])->firstOrFail(),
-            'latest'=> Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'pengumumanTerkini' => Post::where('category', 'pengumuman')->latest()->limit(3)->get(),
+            'beritaTerkini' => Post::where('category', 'berita')->latest()->limit(3)->get(),
+            'agendaTerkini' => Post::where('category', 'agenda')->latest()->limit(3)->get(),
         ]);
     }
 }

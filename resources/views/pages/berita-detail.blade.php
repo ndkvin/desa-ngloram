@@ -39,15 +39,51 @@
                             </ul>
                         </div>
                         <div class="widget latest-blog-widget">
-                            <h4 class="widget-title">Postingan Terkini</h4>
+                            <h4 class="widget-title">Berita Terkini</h4>
                             <ul>
-                                @foreach ($latest as $item)
+                                @foreach ($beritaTerkini as $item)
                                     <li>
                                         <div class="thumb">
                                             <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
                                         </div>
                                         <div class="content">
                                             <h6><a href="{{ route('berita.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </h6>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <div class="widget latest-blog-widget">
+                            <h4 class="widget-title">Agenda Terkini</h4>
+                            <ul>
+                                @foreach ($agendaTerkini as $item)
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="{{ route('agenda.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </h6>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <div class="widget latest-blog-widget">
+                            <h4 class="widget-title">Pengumuman Terkini</h4>
+                            <ul>
+                                @foreach ($pengumumanTerkini as $item)
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{{ Storage::url($item->image) }}" alt="Thumbnail">
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="{{ route('pengumuman.show', $item->slug) }}">{{ $item->title }}</a>
                                             </h6>
                                             <span>{{ $item->created_at->format('d M Y') }}</span>
                                         </div>
