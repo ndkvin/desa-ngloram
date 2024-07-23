@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+// Auth::routes();
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('/', [App\Http\Controllers\Home\HomeController::class, 'home'])->name('home');
 Route::get('/tentang', [App\Http\Controllers\Home\HomeController::class, 'about'])->name('about');
@@ -25,6 +31,6 @@ Route::group([
     'prefix' => 'dashboard',
     'as' => 'dashboard.'
 ], function () {
-    Route::resource('post', App\Http\Controllers\Dashboard\PostController::class);
-    Route::resource('user', App\Http\Controllers\Dashboard\UserController::class);
+    Route::resource('post', App\Http\Controllers\Dashboard\PostController::class)->except('show');
+    Route::resource('user', App\Http\Controllers\Dashboard\UserController::class)->except('show');
 });
