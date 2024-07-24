@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
             'email'=> 'admin@ngloram.com',
             'password'=> bcrypt('password'),
         ]);
-        Post::factory(20)->create();
+        // Post::factory(20)->create();
     }
 }
