@@ -8,8 +8,8 @@
 <script src={{ asset('assets/static/js/pages/datatables.js') }}></script>
 <script src={{ asset('assets/extensions/summernote/summernote-lite.min.js') }}></script>
 <script src={{ asset('assets/static/js/pages/summernote.js') }}></script>
-<script src={{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}></script>>
-<script src={{ asset('assets/static/js/pages/sweetalert2.js') }}></script>>
+<script src={{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}></script>
+<script src={{ asset('assets/static/js/pages/sweetalert2.js') }}></script>
 @if ($errors->any())
     <script>
         let errorMessages = '';

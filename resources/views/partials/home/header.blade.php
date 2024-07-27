@@ -10,14 +10,6 @@
                                 Kabupaten Blora</a></li>
                     </ul>
                 </div>
-                {{-- <div class="col-auto d-none d-md-block">
-					<ul class="social-icons">
-						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-						<li><a href="#"><i class="fab fa-behance"></i></a></li>
-						<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-					</ul>
-				</div> --}}
             </div>
         </div>
     </div>
@@ -25,7 +17,7 @@
         <div class="container">
             <div class="navbar-inner">
                 <div class="site-logo">
-                    <a href={{ route('home') }}><img src="{{  asset('assets/img/logo.png') }}" alt="Funden"></a>
+                    <a href={{ route('home') }}><img src="{{ asset('assets/img/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="nav-menu">
                     <ul>
@@ -59,7 +51,8 @@
                                 <li><a href={{ route('agenda') }}>Agenda</a></li>
                             </ul>
                         </li>
-                        <li class={{ Route::currentRouteName() == 'contact' ? 'current' : '' }}><a href={{ route('contact') }}>Kontak</a></li>
+                        <li class={{ Route::currentRouteName() == 'contact' ? 'current' : '' }}><a
+                                href={{ route('contact') }}>Kontak</a></li>
                     </ul>
                 </div>
                 <div class="navbar-extra d-flex align-items-center">
@@ -72,35 +65,36 @@
     </div>
     <div class="mobile-menu-panel">
         <div class="panel-logo">
-            <a href="index.html"><img src="{{ asset('assets/img/logo-white.png') }}" alt="Funden"></a>
+            <a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo"></a>
         </div>
         <ul class="panel-menu">
-            <li class="current">
-                <a href="index.html">Beranda</a>
+            <li class={{ Route::currentRouteName() == 'home' ? 'current' : '' }}>
+                <a href="{{ route('home') }}">Beranda</a>
             </li>
-            <li>
-                <a href="project-1.html">Profil Desa</a>
+            <li class="{{ in_array(Route::currentRouteName(), $about) ? 'current' : '' }}">
+                <a href="#">Profil Desa</a>
                 <ul class="submenu">
-                    <li><a href="project-1.html">Tentang Desa</a></li>
-                    <li><a href="project-2.html">Visi Misi</a></li>
-                    <li><a href="project-3.html">Geografis</a></li>
-                    <li><a href="project-details.html">Sejarah</a></li>
-                    <li><a href="project-details.html">Demografi</a></li>
+                    <li><a href={{ route('about') }}>Tentang Desa</a></li>
+                    <li><a href={{ route('visi-misi') }}>Visi Misi</a></li>
+                    <li><a href={{ route('geografis') }}>Geografis</a></li>
+                    <li><a href={{ route('sejarah') }}>Sejarah</a></li>
+                    <li><a href={{ route('demografi') }}>Demografi</a></li>
                 </ul>
             </li>
-            <li>
+            <li class={{ Route::currentRouteName() == 'struktur' ? 'current' : '' }}>
                 <a href="events.html">Struktur Organisasi</a>
             </li>
-            <li>
-                <a href="news-standard.html">Informasi Publik</a>
+            <li class="{{ in_array(Route::currentRouteName(), $informasi) ? 'current' : '' }}">
+                <a href="#">Informasi Publik</a>
                 <ul class="submenu">
-                    <li><a href="news-standard.html">Berita</a></li>
-                    <li><a href="news-details.html">Pengumuman</a></li>
-                    <li><a href="news-details.html">Agenda</a></li>
+                    <li><a href={{ route('berita') }}>Berita</a></li>
+                    <li><a href={{ route('pengumuman') }}>Pengumuman</a></li>
+                    <li><a href={{ route('agenda') }}>Agenda</a></li>
                 </ul>
             </li>
 
-            <li><a href="contact.html">Kontak</a></li>
+            <li class={{ Route::currentRouteName() == 'contact' ? 'current' : '' }}><a
+                    href={{ route('contact') }}>Kontak</a></li>
         </ul>
         <a href="#" class="panel-close">
             <i class="fal fa-times"></i>

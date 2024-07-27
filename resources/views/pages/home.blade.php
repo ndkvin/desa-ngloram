@@ -23,7 +23,7 @@
                     <div class="col-xl-10">
                         <span class="tagline wow fadeInUp" data-wow-delay="0.3s">Website</span>
                         <h1 class="title wow fadeInUp" data-wow-delay="0.4s">Desa Ngloram</h1>
-                        <a href="project-1.html" class="main-btn wow fadeInUp" data-wow-delay="0.5s">
+                        <a href="{{ route('berita') }}" class="main-btn wow fadeInUp" data-wow-delay="0.5s">
                             Berita Terkini <i class="far fa-arrow-right"></i>
                         </a>
                     </div>
@@ -42,13 +42,13 @@
         </div>
         <div class="hero-images">
             <div class="hero-img image-small fancy-bottom wow fadeInLeft" data-wow-delay="0.6s">
-                <img src="assets/img/hero/hero-one-small.jpg" alt="Image">
+                <img src="assets/img/hero/herokiri.png" alt="Gambar barongan">
             </div>
             <div class="hero-img main-img wow fadeInUp" data-wow-delay="0.5s">
-                <img src="assets/img/hero/hero-one-big.jpg" alt="Image">
+                <img src="assets/img/hero/hero-one.png" alt="Gambar Kantor Desa">
             </div>
             <div class="hero-img image-small fancy-top wow fadeInRight" data-wow-delay="0.7s">
-                <img src="assets/img/hero/hero-one-small-2.jpg" alt="Image">
+                <img src="assets/img/hero/herokanan.png" alt="Gambar kirab">
             </div>
         </div>
     </section>
@@ -111,7 +111,7 @@
             <div class="row align-items-center justify-content-lg-start justify-content-center">
                 <div class="col-xl-6 col-lg-7 col-md-9">
                     <div class="about-img">
-                        <img src="assets/img/about/about-one.jpg" alt="Image">
+                        <img src="assets/img/logo-large.png" alt="Image">
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-10 offset-xl-1">
@@ -161,7 +161,7 @@
                             <i class="flaticon-reading-book"></i>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="project-details.html">Berita</a></h4>
+                            <h4 class="title"><a href="{{ route('berita') }}">Berita</a></h4>
                             <p>Berita Terkini</p>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                             <i class="flaticon-reading-book"></i>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="project-details.html">Pengumuman</a></h4>
+                            <h4 class="title"><a href="{{ route('pengumuman') }}">Pengumuman</a></h4>
                             <p>Pemberitahuan Penting</p>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                             <i class="flaticon-reading-book"></i>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="project-details.html">Agenda</a></h4>
+                            <h4 class="title"><a href="{{ route('agenda') }}">Agenda</a></h4>
                             <p>Agenda Terbaru</p>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                                 </a>
                                 <h6 class="title">
                                     <a href="{{ route('agenda.show', $agenda->slug) }}">
-                                        {{ \Illuminate\Support\Str::limit($agenda->title, 150, $end = '...') }}
+                                        {{ \Illuminate\Support\Str::limit($agenda->title, 100, $end = '...') }}
                                     </a>
                                 </h6>
                                 <a href="{{ route('agenda.show', $agenda->slug) }}" class="post-link">Read More <i

@@ -7,7 +7,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="widget about-widget">
                             <div class="footer-logo">
-                                <img src="{{ asset('assets/img/logo-white.png') }}" alt="Funden">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="Funden">
                             </div>
                             <p>
                                 Pemerintah Desa Ngloram, Cepu, Kabupaten Blora, Jawa Tengah
@@ -18,12 +18,12 @@
                         <div class="widget nav-widget">
                             <h4 class="widget-title">Profil Desa</h4>
                             <ul>
-                                <li><a href="project-1.html">Tentang Desa</a></li>
-                                <li><a href="project-2.html">Visi & Misi</a></li>
-                                <li><a href="project-1.html">Geografis</a></li>
-                                <li><a href="project-3.html">Sejarah</a></li>
-                                <li><a href="project-2.html">Demografi</a></li>
-                                <li><a href="project-2.html">Struktur Organisasi</a></li>
+                                <li><a href={{ route('about') }}>Tentang Desa</a></li>
+                                <li><a href={{ route('visi-misi') }}>Visi & Misi</a></li>
+                                <li><a href={{ route('geografis') }}>Geografis</a></li>
+                                <li><a href={{ route('sejarah') }}>Sejarah</a></li>
+                                <li><a href={{ route('demografi') }}>Demografi</a></li>
+                                <li><a href={{ route('struktur') }}>Struktur Organisasi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,9 +31,9 @@
                         <div class="widget nav-widget">
                             <h4 class="widget-title">Informasi Publik</h4>
                             <ul>
-                                <li><a href="project-1.html">Berita</a></li>
-                                <li><a href="project-2.html">Pengumuman</a></li>
-                                <li><a href="project-1.html">Agenda</a></li>
+                                <li><a href={{ route('berita') }}>Berita</a></li>
+                                <li><a href={{ route('pengumuman') }}>Pengumuman</a></li>
+                                <li><a href={{ route('agenda') }}>Agenda</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                                     <span class="icon"><i class="far fa-phone mt-3"></i></span>
                                     <span class="info">
                                         <span class="info-title">Phone Number</span>
-                                        <a href="#">+628123455678</a>
+                                        <a href="#">(0296) 4270249</a>
                                     </span>
                                 </li>
                                 <li>
@@ -75,6 +75,7 @@
                     <div class="col-md-6">
                         <p class="copyright-text">© {{ date('Y') }} <a href="#">Pemerintah Desa Ngloram</a>.
                             All Rights Reserved</p>
+                            <p>Created By KKN UNS 17 2024</p>
                     </div>
                 </div>
             </div>

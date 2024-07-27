@@ -43,7 +43,7 @@
                 <input type="hidden" name="content" id='content'>
             </div>
             <button type="submit" class="btn btn-primary ms-1 mt-3">
-                <span class="d-none d-sm-block">Buat</span>
+                <span class="d-sm-block">Buat</span>
             </button>
         </form>
     </div>

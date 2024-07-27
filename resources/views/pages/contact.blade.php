@@ -69,7 +69,7 @@
                                     <div class="info-content">
                                         <h5>Telphone</h5>
                                         <p>
-                                            +6212345678990
+                                            (0296) 4270249
                                         </p>
                                     </div>
                                 </div>

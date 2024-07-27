@@ -3,39 +3,36 @@
 @section('title', 'Desa Ngloram | Demografi')
 
 @section('content')
-<section class="about-section-four section-gap mt-5">
-    <div class="container mt-5">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-lg-6 col-md-10">
-                <div class="about-img mb-md-70">
-                    <img src="assets/img/about/about-three.jpg" alt="Image">
-                </div>
+    <section class="about-section-four section-gap mt-5">
+        <div class="container mt-5">
+            <div class="common-heading mb-30">
+                <span class="tagline">
+                    <i class="fas fa-plus"></i> Demografi
+                    <span class="heading-shadow-text">Demografi</span>
+                </span>
+                <h2 class="title">Demografi Penduduk</h2>
             </div>
-            <div class="col-lg-6 col-md-9">
-                <div class="about-text">
-                    <div class="common-heading mb-30">
-                        <span class="tagline">
-                            <i class="fas fa-plus"></i> Who we are
-                            <span class="heading-shadow-text">Who we are</span>
-                        </span>
-                        <h2 class="title">We Help How To Improve Product Marketing</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                    <div class="about-img mb-md-70">
+                        <img src="assets/img/demografi.png" alt="Image">
                     </div>
-                    <p class="mb-20">
-                        Sedut perspiciatis unde omnis iste natus voluptatem accusan tium dolore dantiumy totam rem apeam, eaque ipsa quaventore veritatis quasi architecto beatae.
-                    </p>
-                    <p>
-                        Unde omnis iste natus voluptatem accusan tium dolore dtiumy totam rem apeam eaqu quaventore veritatis
-                    </p>
-                    <ul class="about-list mt-30">
-                        <li><i class="fas fa-check"></i> Highest Success Rates</li>
-                        <li><i class="fas fa-check"></i> Raise Funds With Crowdfunding</li>
-                        <li><i class="fas fa-check"></i> Millions in Funding</li>
-                    </ul>
-                    <a href="about.html" class="main-btn mt-40"> Learn More <i class="far fa-arrow-right"></i> </a>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="about-text">
+
+                        <p>
+                            Berdasarkan data dari Sistem Informasi Desa (SIDesa) Jawa Tengah, penduduk Desa Ngloram memiliki
+                            tingkat pendidikan dan pekerjaan yang beragam. Dari segi pendidikan, 59 orang tidak sekolah, 151
+                            orang tidak tamat SD, 798 orang tamat SD, 715 orang tamat SMP, 721 orang tamat SMA, dan 199
+                            orang lulusan perguruan tinggi. Dalam hal pekerjaan, mayoritas penduduk bekerja sebagai petani
+                            (1.135 orang) dan buruh tani (284 orang). Selain itu, terdapat juga 12 PNS, 9 guru, 69 pedagang,
+                            128 wiraswasta, serta 1.006 orang dengan pekerjaan lainnya
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 @endsection
