@@ -82,7 +82,7 @@
                 </ul>
             </li>
             <li class={{ Route::currentRouteName() == 'struktur' ? 'current' : '' }}>
-                <a href="#">Struktur Organisasi</a>
+                <a href="{{ route('struktur') }}">Struktur Organisasi</a>
             </li>
             <li class="{{ in_array(Route::currentRouteName(), $informasi) ? 'current' : '' }}">
                 <a href="#">Informasi Publik</a>
