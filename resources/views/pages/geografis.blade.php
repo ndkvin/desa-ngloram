@@ -8,7 +8,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-10">
                     <div class="about-img mb-md-70">
-                        <img src="assets/img/about/about-three.jpg" alt="Image">
+                        <img src="https://akcdn.detik.net.id/community/media/visual/2021/08/27/situs-ngloram-1_169.jpeg?w=700&q=90" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-9">
